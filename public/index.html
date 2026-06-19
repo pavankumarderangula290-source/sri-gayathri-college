@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Gayathri Junior College | Rajampet</title>
+    <meta name="description" content="Sri Gayathri Junior College, Rajampet - We educate we inspire you lead. Excellence in JEE MAINS, NEET, and EAPCET.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Three.js Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>SGJC</h1>
+                <span>Rajampet</span>
+            </div>
+            <div class="contact-hotline">
+                <a href="admin/" class="portal-link">Admin</a>
+                <span>|</span>
+                <a href="staff-login.html" class="portal-link">Staff</a>
+                <span>|</span>
+                <a href="student-login.html" class="portal-link">Student</a>
+                <span>|</span>
+                <a href="fee-payment.html" class="portal-link">Fees</a>
+                <span>|</span>
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:+919160246026">9160246026</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section section-padding">
+            <div class="container hero-content">
+                <div class="hero-text gs-reveal">
+                    <h2 class="tagline">We educate we inspire you lead</h2>
+                    <h1 class="main-title">Sri Gayathri <br><span>Junior College</span></h1>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Main Road, Beside R&B Bunglow, Rajampet</p>
+                    <a href="#admission" class="btn-primary float-effect">Explore Admissions 2026-2027 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Notice Board -->
+        <section id="notice-board" class="section-padding" style="background: transparent;">
+            <div class="container">
+                <div class="section-header gs-reveal">
+                    <h2><i class="fas fa-bullhorn" style="color: var(--accent);"></i> Digital Notice Board</h2>
+                    <p>Latest announcements and circulars</p>
+                    <div class="divider"></div>
+                </div>
+                <div class="grid-3" id="public-announcements-container">
+                    <!-- Announcements will be loaded here dynamically -->
+                    <div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">
+                        Loading announcements...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Administration -->
+        <section id="administration" class="admin-section section-padding">
+            <div class="container">
+                <div class="section-header gs-reveal">
+                    <h2>Key Administration</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="grid-3 admin-grid">
+                    <!-- Card 1 -->
+                    <div class="glass-card profile-card float-slow gs-reveal">
+                        <div class="card-glow red-glow"></div>
+                        <div class="profile-icon"><i class="fas fa-user-tie"></i></div>
+                        <h3>K Sreedhar</h3>
+                        <p class="role">Correspondent</p>
+                        <div class="profile-details">
+                            <span class="badge"><i class="fas fa-microscope"></i> Botany</span>
+                            <span class="badge"><i class="fas fa-award"></i> 25+ Years Exp</span>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="glass-card profile-card float-medium gs-reveal">
+                        <div class="card-glow blue-glow"></div>
+                        <div class="profile-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h3>B V Narasaiah</h3>
+                        <p class="role">Principal</p>
+                        <div class="profile-details">
+                            <span class="badge"><i class="fas fa-square-root-alt"></i> Mathematics</span>
+                            <span class="badge"><i class="fas fa-award"></i> 20+ Years Exp</span>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="glass-card profile-card float-fast gs-reveal">
+                        <div class="card-glow gold-glow"></div>
+                        <div class="profile-icon"><i class="fas fa-user-graduate"></i></div>
+                        <h3>A Suhasini</h3>
+                        <p class="role">Student Counsellor & Academic Incharge</p>
+                        <div class="profile-details">
+                            <span class="badge"><i class="fas fa-square-root-alt"></i> Mathematics</span>
+                            <span class="badge"><i class="fas fa-award"></i> 15+ Years Exp</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Alliance -->
+        <section id="faculty" class="faculty-section section-padding">
+            <div class="container">
+                <div class="section-header gs-reveal">
+                    <h2>Academic Alliance</h2>
+                    <p>Learn from the finest minds</p>
+                    <div class="divider"></div>
+                </div>
+                <div class="grid-4 faculty-grid">
+                    <div class="glass-card faculty-card gs-reveal float-effect">
+                        <h4>Abdulla</h4>
+                        <p class="subject">English</p>
+                        <span class="exp">7+ Years Experience</span>
+                    </div>
+                    <div class="glass-card faculty-card gs-reveal float-effect">
+                        <h4>V. Pavan kumar</h4>
+                        <p class="subject">M.Sc, B.Ed Physics</p>
+                        <span class="exp">15+ Years Experience</span>
+                        <div class="special">EAPCET, JEE, NEET Specialist</div>
+                    </div>
+                    <div class="glass-card faculty-card gs-reveal float-effect">
+                        <h4>Siva</h4>
+                        <p class="subject">Physics</p>
+                        <span class="exp">30+ Years Experience</span>
+                    </div>
+                    <div class="glass-card faculty-card gs-reveal float-effect">
+                        <h4>B. Saidulu</h4>
+                        <p class="subject">M.Sc, B.Ed Chemistry</p>
+                        <span class="exp">14+ Years Experience</span>
+                    </div>
+                    <div class="glass-card faculty-card gs-reveal float-effect">
+                        <h4>B. Vinay</h4>
+                        <p class="subject">Zoology</p>
+                        <span class="exp">3+ Years Experience</span>
+                    </div>
+                    <div class="glass-card faculty-card gs-reveal float-effect">
+                        <h4>Mahesh</h4>
+                        <p class="subject">Civics</p>
+                        <span class="exp">20+ Years Experience</span>
+                    </div>
+                    <div class="glass-card faculty-card gs-reveal float-effect">
+                        <h4>Farooq</h4>
+                        <p class="subject">Economics</p>
+                        <span class="exp">Expert Faculty</span>
+                    </div>
+                    <div class="glass-card faculty-card gs-reveal float-effect">
+                        <h4>K. Suneeta</h4>
+                        <p class="subject">Commerce</p>
+                        <span class="exp">3+ Years Experience</span>
+                    </div>
+                    <div class="glass-card faculty-card gs-reveal float-effect">
+                        <h4>Ramireddy</h4>
+                        <p class="subject">Chemistry</p>
+                        <span class="exp">15+ Years Experience</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Features & Highlights -->
+        <section id="features" class="features-section section-padding">
+            <div class="container">
+                <div class="section-header gs-reveal">
+                    <h2>Special Features & Highlights</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="grid-3 features-grid">
+                    <div class="glass-card feature-card float-slow gs-reveal">
+                        <div class="feature-icon"><i class="fas fa-users-cog"></i></div>
+                        <h4>Faculty-Led Management</h4>
+                        <p>Directly run and managed by experienced faculty members.</p>
+                    </div>
+                    <div class="glass-card feature-card float-fast gs-reveal">
+                        <div class="feature-icon"><i class="fas fa-building"></i></div>
+                        <h4>Premium Infrastructure</h4>
+                        <p>Spacious classrooms, modern laboratories, near RTC Bus Stand.</p>
+                    </div>
+                    <div class="glass-card feature-card float-medium gs-reveal">
+                        <div class="feature-icon"><i class="fas fa-trophy"></i></div>
+                        <h4>Competitive Edge</h4>
+                        <p>Intensive, disciplined preparation for JEE MAINS, NEET, and EAPCET.</p>
+                    </div>
+                    <div class="glass-card feature-card float-medium gs-reveal">
+                        <div class="feature-icon"><i class="fas fa-tasks"></i></div>
+                        <h4>Comprehensive Testing</h4>
+                        <p>Strictly scheduled weekly examinations with deep performance metrics.</p>
+                    </div>
+                    <div class="glass-card feature-card float-slow gs-reveal">
+                        <div class="feature-icon"><i class="fas fa-book"></i></div>
+                        <h4>Superior Materials</h4>
+                        <p>Highly reliable study materials curated by subject matter experts.</p>
+                    </div>
+                    <div class="glass-card feature-card float-fast gs-reveal">
+                        <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
+                        <h4>Individual Attention</h4>
+                        <p>Separate classrooms, hyper-focused attention & academic counseling.</p>
+                    </div>
+                    <div class="glass-card feature-card float-fast gs-reveal">
+                        <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                        <h4>Mental Well-being</h4>
+                        <p>Specialized counseling sessions to overcome academic stress.</p>
+                    </div>
+                    <div class="glass-card feature-card float-medium gs-reveal">
+                        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                        <h4>Parent-Faculty Coordination</h4>
+                        <p>Regular Parent-Faculty Meetings (PFM) to update guardians on progress.</p>
+                    </div>
+                    <div class="glass-card feature-card float-slow gs-reveal">
+                        <div class="feature-icon"><i class="fas fa-rupee-sign"></i></div>
+                        <h4>Highly Accessible</h4>
+                        <p>Affordable and reasonable fee structures tailored for parents.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admission Form Section -->
+        <section id="admission" class="admission-section section-padding">
+            <div class="container">
+                <div class="glass-card form-container gs-reveal">
+                    <div class="section-header">
+                        <h2>Explore Admissions</h2>
+                        <p>Secure your future with us today.</p>
+                        <div class="divider"></div>
+                    </div>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" required placeholder="Student Full Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" required placeholder="Contact Number">
+                        </div>
+                        <div class="form-group">
+                            <select id="course" required>
+                                <option value="" disabled selected>Select Target Course</option>
+                                <option value="jee">JEE MAINS</option>
+                                <option value="neet">NEET</option>
+                                <option value="eapcet">EAPCET</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="4" placeholder="Any specific questions? (Optional)"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-100 float-effect">Submit Inquiry</button>
+                        <div id="form-response" class="form-response"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3>Sri Gayathri Junior College</h3>
+                <p>Main Road, Beside R&B Bunglow, Rajampet</p>
+            </div>
+            <div class="footer-links">
+                <p>&copy; 2026 Sri Gayathri Junior College. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js and GSAP libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="portal.js"></script>
+    <script src="script.js"></script>
+    <script src="gallery.js"></script>
+    <script>
+        // Load Announcements on index load
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const announcements = await sharedApi.getAnnouncements();
+                const container = document.getElementById('public-announcements-container');
+                container.innerHTML = '';
+                
+                if (announcements.length === 0) {
+                    container.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 40px; background: rgba(255,255,255,0.02); border-radius: 12px;">No active announcements at the moment.</div>';
+                    return;
+                }
+                
+                announcements.forEach(a => {
+                    const dateObj = new Date(a.date);
+                    const formattedDate = dateObj.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+                    
+                    let actionBtn = '';
+                    if (a.attachment) {
+                        actionBtn = `<a href="/uploads/${a.attachment}" target="_blank" class="btn-outline" style="display:inline-block; margin-top:15px; padding:6px 12px; font-size:0.85rem;"><i class="fas fa-download"></i> View Attachment</a>`;
+                    }
+                    
+                    container.innerHTML += `
+                        <div class="glass-card gs-reveal float-slow" style="display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="font-size: 0.8rem; color: var(--accent); margin-bottom: 5px; font-weight: 600;">${formattedDate}</div>
+                                <h3 style="margin-bottom: 10px; font-size: 1.3rem;">${a.title}</h3>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;">${a.content}</p>
+                            </div>
+                            ${actionBtn}
+                        </div>
+                    `;
+                });
+            } catch (err) {
+                console.error("Error loading announcements", err);
+            }
+        });
+
+        // Handle Inquiry Form Submission
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = contactForm.querySelector('button[type="submit"]');
+                const responseDiv = document.getElementById('form-response');
+                btn.disabled = true;
+                btn.innerHTML = 'Submitting...';
+
+                const data = {
+                    name: document.getElementById('name').value,
+                    phone: document.getElementById('phone').value,
+                    course: document.getElementById('course').value,
+                    message: document.getElementById('message').value
+                };
+
+                try {
+                    const res = await sharedApi.submitInquiry(data);
+                    if (res.success) {
+                        responseDiv.innerHTML = '<span style="color:var(--success);"><i class="fas fa-check-circle"></i> Inquiry submitted successfully! Our team will contact you soon.</span>';
+                        contactForm.reset();
+                    } else {
+                        responseDiv.innerHTML = '<span style="color:var(--danger);"><i class="fas fa-times-circle"></i> Failed to submit. Please try again.</span>';
+                    }
+                } catch (err) {
+                    responseDiv.innerHTML = '<span style="color:var(--danger);"><i class="fas fa-exclamation-circle"></i> A network error occurred.</span>';
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = 'Submit Inquiry';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
