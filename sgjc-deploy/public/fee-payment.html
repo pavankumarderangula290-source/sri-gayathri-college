@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGJC Online Fee Payment</title>
+    <!-- iOS native feel fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="official-portal.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    <style>
+        /* iOS Liquid Glass Theme Override */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Floating abstract background blobs for liquid effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -10%; left: -10%;
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(162, 219, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(60px);
+            animation: float1 15s ease-in-out infinite;
+        }
+        body::after {
+            content: "";
+            position: fixed;
+            bottom: -10%; right: -10%;
+            width: 40vw; height: 40vw;
+            background: radial-gradient(circle, rgba(255, 204, 229, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(60px);
+            animation: float2 20s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(5%, 5%); } }
+        @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-5%, -5%); } }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1);
+            padding: 30px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #111 0%, #555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .glass-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 14px;
+            font-size: 1.05rem;
+            font-family: inherit;
+            color: #333;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            border-color: #007AFF; /* iOS Blue */
+            box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.15);
+        }
+
+        .glass-btn {
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 16px 28px;
+            border-radius: 14px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0, 122, 255, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .glass-btn:hover {
+            background: #006ce4;
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
+        }
+        
+        .glass-btn:active {
+            transform: scale(0.98);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: #007AFF;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 16px;
+            background: rgba(0, 122, 255, 0.08);
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+        .back-btn:hover {
+            background: rgba(0, 122, 255, 0.15);
+        }
+
+        /* Override dynamic elements generated by JS */
+        #feeList .card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            margin-bottom: 15px;
+            padding: 24px;
+        }
+        #feeList .btn-primary {
+            background: #34C759; /* iOS Green */
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3);
+        }
+        #feeList .btn-primary:hover {
+            background: #30b753;
+            transform: scale(1.02);
+        }
+        
+        /* Make sure app doesn't push it left */
+        .dashboard-layout { display: block; }
+    </style>
+</head>
+<body>
+
+    <div style="width: 100%; max-width: 700px; margin: 60px auto; padding: 0 25px;">
+        <div style="margin-bottom: 30px;">
+            <a href="/" class="back-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to Website
+            </a>
+        </div>
+
+        <div class="glass-card">
+            <h1 class="page-title">Fee Payment</h1>
+            <p style="color: #666; margin-bottom: 25px; font-size: 1.05rem; line-height: 1.5;">Enter your Student ID to instantly view and securely pay your pending college fees.</p>
+            
+            <div style="display: flex; gap: 12px; align-items: stretch;">
+                <input type="text" id="studentIdInput" class="glass-input" placeholder="e.g. STU12345">
+                <button onclick="fetchFees()" class="glass-btn" style="white-space: nowrap;">Search</button>
+            </div>
+        </div>
+
+        <div id="feeResultsContainer" style="display: none; margin-top: 40px;">
+            <h3 style="font-size: 1.3rem; font-weight: 600; color: #111; margin-bottom: 20px; padding-left: 10px;">Pending Invoices</h3>
+            <div id="feeList">
+                <!-- Fees will be rendered here via fee-payment.js -->
+            </div>
+        </div>
+    </div>
+
+    <script src="fee-payment.js"></script>
+</body>
+</html>
